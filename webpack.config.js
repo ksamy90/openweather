@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require("webpack");
+require("dotenv").config({ path: ".env" });
 
 module.exports = {
   entry: "./src/app.js",
@@ -19,6 +21,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.API_KEY": JSON.stringify(process.env.API_KEY),
+    }),
+  ],
   devtool: "cheap-module-eval-source-map",
   devServer: {
     historyApiFallback: true,

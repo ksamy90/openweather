@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "build:dev": "webpack",
     "build": "webpack --watch",
     "serve": "live-server public/",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json"
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:dev"
   },
   "author": "",
   "license": "ISC",
@@ -22,9 +24,11 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "dotenv": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.3.1",
+    "express": "^4.15.4",
     "jest": "^20.0.4",
     "live-server": "^1.2.0",
     "node-sass": "^6.0.1",
